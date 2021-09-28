@@ -1,0 +1,451 @@
+{
+  "tags": [{
+    "name": "ProductHasManyProductShop",
+    "description": "Everything about has many relation"
+  }],
+  "paths": {
+    "/api/v1/Product/has/ProductShop": {
+      "get": {
+        "tags": [
+          "ProductHasManyProductShop"
+        ],
+        "summary": "Get Product list with ProductShop children",
+        "description": "",
+        "operationId": "ProductHasManyProductShopList",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "in": "query",
+            "name": "fields",
+            "type": "String",
+            "description": "Comma seperated fields of model"
+          },
+          {
+            "in": "query",
+            "name": "where",
+            "type": "String",
+            "description": "Where expression"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "page size limit",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "pagination offset",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "description": "sort parameter",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Product/{ProductId}/ProductShop": {
+      "get": {
+        "tags": [
+          "ProductHasManyProductShop"
+        ],
+        "summary": "Find ProductShop list by parent Product id",
+        "description": "Returns a single Product",
+        "operationId": "getProductShopByProductId",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "name": "ProductId",
+            "in": "path",
+            "description": "ID of Product to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "fields",
+            "type": "String",
+            "description": "Comma seperated fields of model"
+          },
+          {
+            "in": "query",
+            "name": "where",
+            "type": "String",
+            "description": "Where expression"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "page size limit",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "pagination offset",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "description": "sort parameter",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": "object"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Product not found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "ProductHasManyProductShop"
+        ],
+        "summary": "Insert ProductShop under a parent Product",
+        "description": "Returns a single Product",
+        "operationId": "insertProductShopByProductId",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "in": "body",
+            "name": "body",
+            "description": "ProductShop object to insert",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "ProductId",
+            "in": "path",
+            "description": "ID of Product to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Product/{ProductId}/ProductShop/{ProductShopId}": {
+      "get": {
+        "tags": [
+          "ProductHasManyProductShop"
+        ],
+        "summary": "Get by ProductShop id parent Product id",
+        "description": "Returns a single Product",
+        "operationId": "getProductShopByIdAndProductId",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "name": "ProductId",
+            "in": "path",
+            "description": "ID of parent Product",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "ProductShopId",
+            "in": "path",
+            "description": "ID of ProductShop",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": "object"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ProductHasManyProductShop"
+        ],
+        "summary": "Delete by ProductShop id parent Product id",
+        "description": "Returns a single Product",
+        "operationId": "deleteProductShopByIdAndProductId",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "name": "ProductId",
+            "in": "path",
+            "description": "ID of parent Product",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "ProductShopId",
+            "in": "path",
+            "description": "ID of cProductShop",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ProductHasManyProductShop"
+        ],
+        "summary": "Update ProductShop under a parent Product",
+        "description": "Returns a single Product",
+        "operationId": "updateProductShopByIdAndProductId",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "in": "body",
+            "name": "body",
+            "description": "ProductShop object to insert",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "ProductId",
+            "in": "path",
+            "description": "ID of Product to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "ProductShopId",
+            "in": "path",
+            "description": "ID of ProductShop",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Product/{ProductId}/ProductShop/{ProductShopId}/exists": {
+      "get": {
+        "tags": [
+          "ProductHasManyProductShop"
+        ],
+        "summary": "Check row exists by ProductShop id and parent Product id",
+        "description": "",
+        "operationId": "existsProductShopByIdAndProductId",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "name": "ProductId",
+            "in": "path",
+            "description": "ID of parent Product",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "ProductShopId",
+            "in": "path",
+            "description": "ID of ProductShop",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Product/{ProductId}/ProductShop/findOne": {
+      "get": {
+        "tags": [
+          "ProductHasManyProductShop"
+        ],
+        "summary": "Find one ProductShop by parent Product id and filters",
+        "description": "",
+        "operationId": "findOneProductShopByProductId",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "name": "ProductId",
+            "in": "path",
+            "description": "ID of parent Product",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "fields",
+            "type": "String",
+            "description": "Comma seperated fields of model"
+          },
+          {
+            "in": "query",
+            "name": "where",
+            "type": "String",
+            "description": "Where expression"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "page size limit",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "pagination offset",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "description": "sort parameter",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Product/{ProductId}/ProductShop/count": {
+      "get": {
+        "tags": [
+          "ProductHasManyProductShop"
+        ],
+        "summary": "Get ProductShop count by parent id and filter",
+        "description": "",
+        "operationId": "getCountWithinProductId",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "name": "ProductId",
+            "in": "path",
+            "description": "ID of parent Product",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "where",
+            "type": "String",
+            "description": "Where expression"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "page size limit",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "pagination offset",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "description": "sort parameter",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {}
+}

@@ -1,0 +1,451 @@
+{
+  "tags": [{
+    "name": "ProductTypeHasManyProduct",
+    "description": "Everything about has many relation"
+  }],
+  "paths": {
+    "/api/v1/ProductType/has/Product": {
+      "get": {
+        "tags": [
+          "ProductTypeHasManyProduct"
+        ],
+        "summary": "Get ProductType list with Product children",
+        "description": "",
+        "operationId": "ProductTypeHasManyProductList",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "in": "query",
+            "name": "fields",
+            "type": "String",
+            "description": "Comma seperated fields of model"
+          },
+          {
+            "in": "query",
+            "name": "where",
+            "type": "String",
+            "description": "Where expression"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "page size limit",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "pagination offset",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "description": "sort parameter",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ProductType/{ProductTypeId}/Product": {
+      "get": {
+        "tags": [
+          "ProductTypeHasManyProduct"
+        ],
+        "summary": "Find Product list by parent ProductType id",
+        "description": "Returns a single ProductType",
+        "operationId": "getProductByProductTypeId",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "name": "ProductTypeId",
+            "in": "path",
+            "description": "ID of ProductType to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "fields",
+            "type": "String",
+            "description": "Comma seperated fields of model"
+          },
+          {
+            "in": "query",
+            "name": "where",
+            "type": "String",
+            "description": "Where expression"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "page size limit",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "pagination offset",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "description": "sort parameter",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": "object"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "ProductType not found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "ProductTypeHasManyProduct"
+        ],
+        "summary": "Insert Product under a parent ProductType",
+        "description": "Returns a single ProductType",
+        "operationId": "insertProductByProductTypeId",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "in": "body",
+            "name": "body",
+            "description": "Product object to insert",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "ProductTypeId",
+            "in": "path",
+            "description": "ID of ProductType to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ProductType/{ProductTypeId}/Product/{ProductId}": {
+      "get": {
+        "tags": [
+          "ProductTypeHasManyProduct"
+        ],
+        "summary": "Get by Product id parent ProductType id",
+        "description": "Returns a single ProductType",
+        "operationId": "getProductByIdAndProductTypeId",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "name": "ProductTypeId",
+            "in": "path",
+            "description": "ID of parent ProductType",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "ProductId",
+            "in": "path",
+            "description": "ID of Product",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": "object"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ProductTypeHasManyProduct"
+        ],
+        "summary": "Delete by Product id parent ProductType id",
+        "description": "Returns a single ProductType",
+        "operationId": "deleteProductByIdAndProductTypeId",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "name": "ProductTypeId",
+            "in": "path",
+            "description": "ID of parent ProductType",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "ProductId",
+            "in": "path",
+            "description": "ID of cProduct",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ProductTypeHasManyProduct"
+        ],
+        "summary": "Update Product under a parent ProductType",
+        "description": "Returns a single ProductType",
+        "operationId": "updateProductByIdAndProductTypeId",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "in": "body",
+            "name": "body",
+            "description": "Product object to insert",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "ProductTypeId",
+            "in": "path",
+            "description": "ID of ProductType to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "ProductId",
+            "in": "path",
+            "description": "ID of Product",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ProductType/{ProductTypeId}/Product/{ProductId}/exists": {
+      "get": {
+        "tags": [
+          "ProductTypeHasManyProduct"
+        ],
+        "summary": "Check row exists by Product id and parent ProductType id",
+        "description": "",
+        "operationId": "existsProductByIdAndProductTypeId",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "name": "ProductTypeId",
+            "in": "path",
+            "description": "ID of parent ProductType",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "ProductId",
+            "in": "path",
+            "description": "ID of Product",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ProductType/{ProductTypeId}/Product/findOne": {
+      "get": {
+        "tags": [
+          "ProductTypeHasManyProduct"
+        ],
+        "summary": "Find one Product by parent ProductType id and filters",
+        "description": "",
+        "operationId": "findOneProductByProductTypeId",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "name": "ProductTypeId",
+            "in": "path",
+            "description": "ID of parent ProductType",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "fields",
+            "type": "String",
+            "description": "Comma seperated fields of model"
+          },
+          {
+            "in": "query",
+            "name": "where",
+            "type": "String",
+            "description": "Where expression"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "page size limit",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "pagination offset",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "description": "sort parameter",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ProductType/{ProductTypeId}/Product/count": {
+      "get": {
+        "tags": [
+          "ProductTypeHasManyProduct"
+        ],
+        "summary": "Get Product count by parent id and filter",
+        "description": "",
+        "operationId": "getCountWithinProductTypeId",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "name": "ProductTypeId",
+            "in": "path",
+            "description": "ID of parent ProductType",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "where",
+            "type": "String",
+            "description": "Where expression"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "page size limit",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "pagination offset",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "description": "sort parameter",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {}
+}
