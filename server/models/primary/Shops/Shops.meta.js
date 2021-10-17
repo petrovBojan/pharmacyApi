@@ -2,11 +2,12 @@ module.exports = {
   tableName: 'Shops',
   columns: [{
       columnName: 'ShopID',
-      type: 'bigInteger',
-      dataType: 'bigint',
+      type: 'uniqueidentifier',
+      dataType: 'uniqueidentifier',
       notNull: true,
+      default: "(newid())",
+      columnDefault: "(newid())",
       primaryKey: true,
-      autoIncrement: true,
       validate: {
         func: [],
         args: [],
@@ -30,6 +31,28 @@ module.exports = {
       dataType: 'nvarchar',
       notNull: true,
       data_type_x_precision: "100",
+      validate: {
+        func: [],
+        args: [],
+        msg: []
+      },
+    },
+    {
+      columnName: 'address',
+      type: 'string',
+      dataType: 'nvarchar',
+      data_type_x_precision: "150",
+      validate: {
+        func: [],
+        args: [],
+        msg: []
+      },
+    },
+    {
+      columnName: 'contact',
+      type: 'string',
+      dataType: 'nvarchar',
+      data_type_x_precision: "50",
       validate: {
         func: [],
         args: [],

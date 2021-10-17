@@ -22,7 +22,6 @@ class AuthService extends BaseService {
 
 
   async signin(req, res, next) {
-    debugger;
     passport.authenticate('local', async (err, user, info) => {
 
       try {

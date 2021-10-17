@@ -14,8 +14,6 @@ class AuthRouter extends BaseRouter {
   }
 
   async signup(req, res, next) {
-    console.log('sdsds')
-    debugger;
     let data = await this.AuthService.signup(req, res, next);
     res.json(data);
   }

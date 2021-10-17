@@ -675,10 +675,6 @@
     "Users": {
       "type": "object",
       "properties": {
-        "ID": {
-          "type": "string",
-          "nullable": false
-        },
         "FirstName": {
           "type": "string",
           "nullable": false
@@ -697,6 +693,22 @@
         },
         "Image": {
           "type": "string"
+        },
+        "JobTitle": {
+          "type": "string",
+          "nullable": true
+        },
+        "Contact": {
+          "type": "string",
+          "nullable": true
+        },
+        "Education": {
+          "type": "string",
+          "nullable": true
+        },
+        "NumberOfWorkYears": {
+          "type": "string",
+          "nullable": true
         }
       }
     }

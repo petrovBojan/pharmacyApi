@@ -4,7 +4,9 @@ module.exports = {
       columnName: 'ManufacturerID',
       type: 'uniqueidentifier',
       dataType: 'uniqueidentifier',
-      notNull: false,
+      notNull: true,
+      default: "(newid())",
+      columnDefault: "(newid())",
       primaryKey: true,
       validate: {
         func: [],

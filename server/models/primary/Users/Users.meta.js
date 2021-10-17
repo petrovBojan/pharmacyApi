@@ -5,6 +5,8 @@ module.exports = {
       type: 'uniqueidentifier',
       dataType: 'uniqueidentifier',
       notNull: true,
+      default: "(newid())",
+      columnDefault: "(newid())",
       primaryKey: true,
       validate: {
         func: [],
@@ -76,6 +78,7 @@ module.exports = {
       type: 'string',
       dataType: 'varchar',
       notNull: true,
+      data_type_x_precision: "-1",
       validate: {
         func: [],
         args: [],
@@ -87,6 +90,7 @@ module.exports = {
       type: 'string',
       dataType: 'varchar',
       notNull: true,
+      data_type_x_precision: "150",
       validate: {
         func: [],
         args: [],
@@ -98,6 +102,8 @@ module.exports = {
       type: 'string',
       dataType: 'varchar',
       default: "user",
+      columnDefault: "user",
+      data_type_x_precision: "50",
       validate: {
         func: [],
         args: [],
@@ -109,6 +115,8 @@ module.exports = {
       type: 'string',
       dataType: 'varchar',
       default: "local",
+      columnDefault: "local",
+      data_type_x_precision: "50",
       validate: {
         func: [],
         args: [],
@@ -118,7 +126,8 @@ module.exports = {
     {
       columnName: 'provider_data',
       type: 'text',
-      dataType: 'mediumtext',
+      dataType: 'text',
+      data_type_x_precision: "2147483647",
       validate: {
         func: [],
         args: [],
@@ -128,7 +137,8 @@ module.exports = {
     {
       columnName: 'provider_data_plus',
       type: 'text',
-      dataType: 'mediumtext',
+      dataType: 'text',
+      data_type_x_precision: "2147483647",
       validate: {
         func: [],
         args: [],
@@ -139,6 +149,7 @@ module.exports = {
       columnName: 'provider_ids',
       type: 'string',
       dataType: 'varchar',
+      data_type_x_precision: "50",
       validate: {
         func: [],
         args: [],
@@ -149,6 +160,7 @@ module.exports = {
       columnName: 'reset_password_token',
       type: 'string',
       dataType: 'varchar',
+      data_type_x_precision: "50",
       validate: {
         func: [],
         args: [],
@@ -169,6 +181,7 @@ module.exports = {
       columnName: 'email_verification_token',
       type: 'string',
       dataType: 'varchar',
+      data_type_x_precision: "50",
       validate: {
         func: [],
         args: [],
@@ -178,8 +191,54 @@ module.exports = {
     {
       columnName: 'email_verified',
       type: 'integer',
-      dataType: 'tinyint',
-      default: "0",
+      dataType: 'smallint',
+      default: "((0))",
+      columnDefault: "((0))",
+      data_type_x_precision: "5",
+      validate: {
+        func: [],
+        args: [],
+        msg: []
+      },
+    },
+    {
+      columnName: 'jobtitle',
+      type: 'string',
+      dataType: 'nvarchar',
+      data_type_x_precision: "50",
+      validate: {
+        func: [],
+        args: [],
+        msg: []
+      },
+    },
+    {
+      columnName: 'contact',
+      type: 'string',
+      dataType: 'nvarchar',
+      data_type_x_precision: "50",
+      validate: {
+        func: [],
+        args: [],
+        msg: []
+      },
+    },
+    {
+      columnName: 'education',
+      type: 'string',
+      dataType: 'nvarchar',
+      data_type_x_precision: "150",
+      validate: {
+        func: [],
+        args: [],
+        msg: []
+      },
+    },
+    {
+      columnName: 'workYearsNum',
+      type: 'string',
+      dataType: 'nvarchar',
+      data_type_x_precision: "50",
       validate: {
         func: [],
         args: [],
@@ -188,19 +247,7 @@ module.exports = {
     },
   ],
   pks: [],
-  hasMany: [{
-    "referencedTableName": "Users",
-    "referencedColumnName": "ID",
-    "constraintName": "FK_Product_Users",
-    "updateRule": "NO ACTION",
-    "deleteRule": "NO ACTION"
-  }, {
-    "referencedTableName": "Users",
-    "referencedColumnName": "ID",
-    "constraintName": "FK_Product_Users1",
-    "updateRule": "NO ACTION",
-    "deleteRule": "NO ACTION"
-  }],
+  hasMany: [],
   belongsTo: [],
   dbType: 'mssql'
 }

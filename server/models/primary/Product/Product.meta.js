@@ -5,6 +5,8 @@ module.exports = {
       type: 'uniqueidentifier',
       dataType: 'uniqueidentifier',
       notNull: true,
+      default: "(newid())",
+      columnDefault: "(newid())",
       primaryKey: true,
       validate: {
         func: [],
@@ -107,7 +109,7 @@ module.exports = {
     },
     {
       columnName: 'ManufacturerID',
-      type: 'string',
+      type: 'uniqueidentifier',
       dataType: 'uniqueidentifier',
       notNull: true,
       validate: {
@@ -153,7 +155,6 @@ module.exports = {
         msg: []
       },
     },
-    
   ],
   pks: [],
   hasMany: [{
