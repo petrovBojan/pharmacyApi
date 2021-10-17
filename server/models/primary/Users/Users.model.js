@@ -18,6 +18,7 @@ class users extends BaseModelSql {
   async beforeInsert(user) {
     if (!user.roles) user.roles = 'user';
     if (!user.provider || user.provider === 'local') {
+      user.username = user.firstname + "." + user.lastname;
       user.salt = await XcUtils.getBCryptSalt(bcrypt);
       user.password = await XcUtils.getBCryptHash(bcrypt, user.password, user.salt);
       user.email_verification_token = uuidV4();

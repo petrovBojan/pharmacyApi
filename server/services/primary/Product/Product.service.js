@@ -7,6 +7,8 @@ class ProductService extends BaseService {
   constructor(app) {
     super(app);
     this.Product = app.$dbs.primary.Product;
+    this.Manufacturer = app.$dbs.primary.Manufacturer;
+    this.ProductGroup = app.$dbs.primary.ProductGroup;
   }
 
   async create(req, res) {
@@ -15,8 +17,15 @@ class ProductService extends BaseService {
   }
 
   async list(req, res) {
-    let data = await this.Product.list(req.query);
-    return data;
+    let products = await this.Product.list(req.query);
+    let manufacturers = await this.Manufacturer.list();
+    let productGroups = await this.ProductGroup.list();
+    
+    products.forEach(product => {
+      product.ManufacturerName = manufacturers.find(m=>m.ManufacturerID == product.ManufacturerID).Name;
+      product.ProductGroupName = productGroups.find(pg=>pg.ProductGroupID == product.ProductGroupID).GroupName;
+    });
+    return products;
   }
 
   async read(req, res) {
