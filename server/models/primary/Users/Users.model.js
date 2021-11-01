@@ -18,9 +18,9 @@ class users extends BaseModelSql {
   async beforeInsert(user) {
     if (!user.roles) user.roles = 'user';
     if (!user.provider || user.provider === 'local') {
-      user.username = user.firstname + "." + user.lastname;
+      user.username = user.FirstName + "." + user.LastName;
       user.salt = await XcUtils.getBCryptSalt(bcrypt);
-      user.password = await XcUtils.getBCryptHash(bcrypt, user.password, user.salt);
+      user.Password = await XcUtils.getBCryptHash(bcrypt, user.Password, user.salt);
       user.email_verification_token = uuidV4();
     } else {
       user.email_verified = true;
@@ -30,7 +30,7 @@ class users extends BaseModelSql {
   async beforeUpdate(user) {
     if ((!user.provider || user.provider === 'local') && !user.salt) {
       user.salt = await XcUtils.getBCryptSalt(bcrypt);
-      user.password = await XcUtils.getBCryptHash(bcrypt, user.password, user.salt);
+      user.Password = await XcUtils.getBCryptHash(bcrypt, user.Password, user.salt);
     }
   }
   

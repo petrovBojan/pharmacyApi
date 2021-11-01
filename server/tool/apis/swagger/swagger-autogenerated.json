@@ -9323,7 +9323,7 @@
           "type": "string",
           "nullable": true
         },
-        "NumberOfWorkYears": {
+        "workYearsNum": {
           "type": "string",
           "nullable": true
         }
