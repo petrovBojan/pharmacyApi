@@ -9,6 +9,7 @@ class ProductService extends BaseService {
     this.Product = app.$dbs.primary.Product;
     this.Manufacturer = app.$dbs.primary.Manufacturer;
     this.ProductGroup = app.$dbs.primary.ProductGroup;
+    this.ProductType = app.$dbs.primary.ProductType;
   }
 
   async create(req, res) {
@@ -20,10 +21,12 @@ class ProductService extends BaseService {
     let products = await this.Product.list(req.query);
     let manufacturers = await this.Manufacturer.list();
     let productGroups = await this.ProductGroup.list();
+    let productTypes = await this.ProductType.list();
     
     products.forEach(product => {
       product.ManufacturerName = manufacturers.find(m=>m.ManufacturerID == product.ManufacturerID).Name;
       product.ProductGroupName = productGroups.find(pg=>pg.ProductGroupID == product.ProductGroupID).GroupName;
+      product.ProductTypeName = productTypes.find(pt=>pt.ProductTypeID == product.ProductTypeID).Name;
     });
     return products;
   }

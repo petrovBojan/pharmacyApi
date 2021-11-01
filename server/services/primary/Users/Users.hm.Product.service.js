@@ -6,7 +6,7 @@ class UsersHmProductService extends BaseService {
 
   constructor(app) {
     super(app);
-    this.Users = app.$dbs.primary.Users;
+    this.Users = app.$dbs.primary.users;
     this.Product = app.$dbs.primary.Product;
   }
 

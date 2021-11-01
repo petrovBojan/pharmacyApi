@@ -37,13 +37,11 @@ class Strategy {
 
 
   local({app}) {
-    debugger;
     passport.use(new PassportLocalStrategy({usernameField: 'email'},
 
       async function (email, password, done) {
 
         try {
-          debugger;
           let user = await app.$dbs.primary.users.findOne({where: `(email,eq,${email})`})
 
           if (!user || !user.email) {
